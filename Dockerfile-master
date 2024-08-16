@@ -1,0 +1,13 @@
+FROM ubuntu:latest
+
+# Install necessary packages
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    apt-add-repository --yes --update ppa:ansible/ansible && \
+    apt-get install -y ansible openssh-client openssh-server python3-pip sshpass && \
+    apt-get clean
+
+# Create a directory for Ansible playbooks
+RUN mkdir -p /ansible
+
+WORKDIR /ansible

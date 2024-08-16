@@ -1,0 +1,31 @@
+version: '3'
+services:
+  ansible-master:
+    image: ubuntu:latest
+    container_name: ansible-master
+    tty: true
+    volumes:
+      - ./ansible:/ansible
+    networks:
+      - ansible-network
+    build: 
+      context: .
+      dockerfile: Dockerfile-master
+
+  node1:
+    image: ubuntu:latest
+    container_name: node1
+    tty: true
+    networks:
+      - ansible-network
+
+  node2:
+    image: ubuntu:latest
+    container_name: node2
+    tty: true
+    networks:
+      - ansible-network
+
+networks:
+  ansible-network:
+    driver: bridge
