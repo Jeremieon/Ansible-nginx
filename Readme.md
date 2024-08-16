@@ -1,4 +1,4 @@
-##Deploying and configuring Nginx with Ansible
+## Deploying and configuring Nginx with Ansible
 
 1. Setup Docker Enviroments (master,nodes)
 2. Dockerfile for Ansible Master
